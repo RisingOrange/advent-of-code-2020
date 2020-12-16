@@ -29,7 +29,8 @@ def field_order(fields, tickets):
         for field, valid_positions in valid_positions_for_field.items():
             canidate_positions = set(valid_positions) - set(field_name_for_pos)
             if len(canidate_positions) == 1:
-                field_name_for_pos[list(canidate_positions)[0]] = field
+                (pos,) = canidate_positions
+                field_name_for_pos[pos] = field
 
     assert len(field_name_for_pos) == len(
         fields), 'the shortcut used for computing the field_order is not applicable on the provided input'
